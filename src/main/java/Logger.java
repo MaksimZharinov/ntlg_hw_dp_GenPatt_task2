@@ -1,9 +1,14 @@
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+
 public class Logger {
-    private static Logger logger;
+    LocalDateTime now = LocalDateTime.now();
+    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd.MM.yyyy HH:mm:ss");
+    private static Logger logger = new Logger();
     protected int num = 1;
 
     public void log(String msg) {
-        System.out.println("[" + num++ + "] " + msg);
+        System.out.println("[" + now.format(formatter) + num++ + "] " + msg);
     }
 
     private Logger() {}
